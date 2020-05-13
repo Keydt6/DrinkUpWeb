@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/estilos/style.css"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">    
+ 
+<window title="Clientes" width="500px"  border="normal"  
+        apply="Controlador.ControladorClientes">    
+      
+<grid>   
+     <rows>
+         
+       <row>  
+             Cedula Cliente:
+            <textbox id="cedula" maxlength="10" cols="10" />
+	</row>	
+            	
+	<row>
+           Nombre: 
+           <textbox id="nombre" maxlength="30" cols="30" />
+	</row>
+
+
+	<row>
+           Apellido:                       
+           <textbox id="apellido" maxlength="30" cols="30" />            
+	</row>                
+                                                
+	<row>
+           Direccion:             
+           <textbox id="direccion" maxlength="30" cols="30" />
+	</row>
+
+	<row>
+           Telefono:             
+           <textbox id="telefono" maxlength="20" cols="20" />
+	</row>
+
+	<row>
+           Fecha Nac:             
+          <datebox id="fechanac" format="dd/MM/yyyy"  /> 
+	</row>
+                                                                                                                                
+    </rows>    
+</grid>
+
+<button id="BtnGrabar" label="Grabar" />
+
+</window>   
+
+</zk>
+

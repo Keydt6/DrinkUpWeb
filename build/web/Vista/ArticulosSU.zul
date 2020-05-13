@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/estilos/style.css"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">    
+ 
+<window title="Articulos" width="700px"  border="normal"> 
+          
+      
+<grid>   
+     <rows>
+         
+       <row>  
+             Id Articulos:
+            <textbox id="id" maxlength="10" cols="10" />
+	</row>	
+            	
+	<row>
+           Descripcion: 
+           <textbox id="descripcion" maxlength="30" cols="30" />
+	</row>
+
+
+	<row>
+           Nombre:                       
+           <textbox id="nombre" maxlength="30" cols="30" />            
+	</row> 
+            <row>
+            Categoria:
+           <combobox id="categoria">
+    <comboitem label="Vinos"/>
+    <comboitem label="Cervezas"/>
+    <comboitem label="Licores"/>
+    <comboitem label="Otros"/>
+           </combobox>
+            </row>
+            
+            <row>
+            Marca:
+          <combobox id="marca">
+    <comboitem label="Cacique"/>
+    <comboitem label="Santa Teresa"/>
+    <comboitem label="Superior"/>
+    <comboitem label="Canaima"/>
+           </combobox>
+            </row>
+            
+            <row>
+             Tamaño:
+    <checkbox id="pequeño" label="Pequeño" onCheck="doChecked()" />
+    <checkbox id="mediano" label="Mediano" onCheck="doChecked()" />
+    <checkbox id="grande" label="Grande" onCheck="doChecked()" />
+    <hbox>
+        Has seleccionado:
+        <label id="chequeo" />
+    </hbox>
+    <zscript> void doChecked() { chequeo.value = (pequeño.isChecked() ?
+        pequeño.label+' ' : &quot;&quot;) 
+                     + (mediano.isChecked() ? mediano.label+' ' : &quot;&quot;) 
+                     + (grande.isChecked() ? grande.label+' ' : &quot;&quot;);
+             }
+         </zscript>   
+            </row>            
+                                                
+	<row>
+            Precio:             
+           <textbox id="precio" maxlength="30" cols="30" />
+	</row>
+
+	<row>
+           Stock:             
+           <spinner id="stock" width="100px" inplace="false"  />
+	</row>
+                                                                                                                                
+    </rows>    
+</grid>
+
+<button id="BtnGrabar" label="Grabar" />
+
+</window>   
+
+</zk>
+

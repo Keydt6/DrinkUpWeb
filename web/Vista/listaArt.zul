@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"  arg0="./listArtii" ?>
+
+<zk xmlns:n="http://www.zkoss.org/2005/zk/native"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+
+    <zscript>
+		<![CDATA[
+                    List arts = new ArrayList();
+                    DTO.Articulo art = arg.get("objeto");
+                    String modo = arg.get("modo");
+		]]>						
+    </zscript>
+    <window id="listArtii" title="Articulos" maximizable="false" maximized="false"
+            border="normal" width="850px" height="500px">
+        <div height="30%" style="overflow: auto;">
+            
+                <columns>
+                    <column width="20%" align="right" />
+                    <column width="80%" />
+                </columns>
+                
+                <vbox>
+                    <rows>
+                        <row> 
+                            <label value="Ciudad" />
+                            <combobox cols="50" maxlength="4" value="@{plato.codigo}">
+                                <comboitem label="Barquisimeto"/>
+                                <comboitem label="Cabudare" />
+                            </combobox>
+                        </row>
+                        <row> 
+                            <label value="Ciudad" />
+                            <combobox cols="50" maxlength="4" value="@{plato.codigo}">
+                                <comboitem label="Barquisimeto"/>
+                                <comboitem label="Cabudare" />
+                            </combobox>
+                        </row>
+                    </rows>
+                </vbox>
+           
+        </div>
+        <div height="88%" style="overflow: auto;">
+            <tabbox orient="horizontal">
+                <tabs width="120px">
+                    <tab label="Destino" />
+                    <tab label="Articulos" />
+                </tabs>
+                <tabpanels>
+                    <tabpanel>
+                        <grid>
+                            <columns>
+                                <column width="20%" align="right" />
+                                <column width="80%" />
+                            </columns>
+                            <rows>
+                                <row> 
+                                    <label value="Ciudad" />
+                                    <combobox cols="50" maxlength="4" value="@{plato.codigo}">
+                                        <comboitem label="Barquisimeto"/>
+                                        <comboitem label="Cabudare" />
+                                    </combobox>
+                                </row>
+                                <row> 
+                                    <label value="Parroquia" />
+                                    <combobox cols="50" maxlength="4" value="@{plato.codigo}">
+                                        <comboitem label="Buena Vista"/>
+                                        <comboitem label="Catedral"/>
+                                        <comboitem label="Concepción"/>
+                                        <comboitem label="Felipe Alvarado"/>
+                                        <comboitem label="Juan de Villegas"/>
+                                        <comboitem label="Juárez"/>
+                                        <comboitem label=""/>
+                                        <comboitem label=""/>
+                                        <comboitem label=""/>
+                                    </combobox>
+                                </row>
+                                <row>
+                                    <label value="Dirección" />
+                                    <textbox cols="50" value="@{plato.nombre}"/>									
+                                </row>
+                                <row> 
+                                    <label value="Referencia 1" />
+                                    <textbox cols="50" maxlength="4" value="@{plato.codigo}"/>
+                                </row>
+                                <row> 
+                                    <label value="Referencia 2" />
+                                    <textbox cols="50" maxlength="4" value="@{plato.codigo}"/>
+                                </row>
+                            </rows>
+                        </grid>
+                    </tabpanel>
+                    <tabpanel style="overflow:auto">
+                        <toolbar>
+                            <hbox align="center" style="background:#FFFFFF;">
+                                <button label="Agregar Articulos" image="/Vista/General/Images/incluir.png"  id="Incluir">
+                                    <attribute name="onClick">
+					<![CDATA[
+                                            DTO.Articulo pin = new DTO.Articulo();
+                                            
+                                            binder.loadAll();
+					]]>
+                                    </attribute>
+                                </button>
+                            </hbox>
+                        </toolbar>
+                        <listbox fixedLayout="true" mold="paging" pageSize="20" width="100%"
+                                 model="@{plato.ingredientes}">
+                            <listhead>
+                                <listheader label="Articulo" align="center" valign="middle" width="80%" />
+                                <listheader label="Cantidad" align="center" valign="middle" width="10%" />
+                                <listheader label="Ops." align="center" valign="middle" width="10%" />
+                            </listhead>
+                            <listitem sclass="row-border item" self="@{each=objetomre}" value="@{objetomre}">
+                                <listcell>
+                                    <hbox>
+                                        <label value="@{objetomre.ingrediente.nombre}"></label>
+                                        <button label="${labels.buscar}" image="/Vista/General/Images/find.png">
+                                            <attribute name="onClick">
+						<![CDATA[
+							Map parametros = new HashMap();
+							Window window = (Window)Executions.createComponents("/WEB-INF/Vista/SeleccionarArticulo.zul", null,parametros);
+							window.doModal();
+							if (window.getAttribute("accion").equals("A"))
+							{
+                                                        	dto.Ingrediente ingSel = window.getAttribute("objeto");
+                                                                boolean enc = false;
+								for (dto.PlatoIngrediente plaing : plato.getIngredientes())
+								{
+									if (plaing.getIngrediente() != null )
+									{
+										if (plaing.getIngrediente().equals(ingSel))
+										{
+											enc = true;
+											alert("El Articulo Ya Ha Sido Incluido");
+											break;
+										}
+									}
+								}
+								
+								if (!enc)
+								{
+									dto.PlatoIngrediente plai = ((Listitem)self.getParent().getParent().getParent()).getValue();
+									plai.setIngrediente(ingSel);
+									plai.setIngredienteid(ingSel.getCodigo());
+									binder.loadAll();
+								}
+							}
+						]]>
+                                            </attribute>
+                                        </button>
+                                    </hbox>
+                                </listcell>
+                                <listcell>
+                                    <intbox value="@{objetomre.cantidad}" width="100%">
+                                    </intbox>
+                                </listcell>
+                                <listcell>
+                                    <image tooltiptext="Remover Ingrediente" src="/Vista/Genaral/Images/borrar.png" 
+                                           id="Eliminar" width="18px" height="18px">
+                                        <attribute name="onClick">
+										<![CDATA[
+											dto.PlatoIngrediente plaing = ((Listitem)self.getParent().getParent()).getValue();
+											plato.getIngredientes().remove(plaing);
+											binder.loadAll();
+										]]>
+                                        </attribute>
+                                    </image>
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                    </tabpanel>
+                </tabpanels>
+            </tabbox>
+        </div>
+        <div align="right" height="20%" style="background:#005386">
+            <button id="btnAceptar" label="Aceptar" image="/Vista/General/Images/aceptar.png" orient="vertical">
+                <attribute name="onClick">
+					<![CDATA[
+						try
+						{	
+							alert("Datos Guardados con Exito");
+							editPlato.setAttribute("accion","A");
+							editPlato.detach();
+						}
+						catch (Exception sle)
+						{
+							alert(sle.getMessage());
+						}
+					]]>
+                </attribute>
+            </button>
+            <button id="btnCancelar" label="Cancelar" image="/Vista/General/Images/remover.png" orient="vertical">
+                <attribute name="onClick">
+					<![CDATA[
+						editPlato.setAttribute("accion","C");
+						editPlato.detach();
+					]]>
+                </attribute>
+            </button>
+        </div>
+    </window>
+</zk>

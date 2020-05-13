@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./selectArt"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="http://www.zkoss.org/2005/zk/native"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+    
+    <zscript>
+<![CDATA[
+	
+	Object artCatalogo = null;
+        
+	List arreglo = new ArrayList();
+                    DTO.Marca mar = new DTO.Marca();
+                    mar.setId_mar("00001");
+                    mar.setNombre("Casique");
+                    mar.setDescrip("Ron de Venezuela");
+                    mar.setEstatus(true);
+                    
+                    DTO.Categoria cat = new DTO.Categoria();
+                    cat.setId_cat(1);
+                    cat.setTipo_cat(2);
+                    cat.setDescrip("articulos que son ron");
+                    cat.setNombre("Ron");
+                    cat.setEstatus(true);
+                    
+                    List articulos = new ArrayList();
+                    List articulosEnc = new ArrayList();
+                    DTO.Articulo artSel;
+                    
+                    DTO.Articulo art = new DTO.Articulo();
+                    art.setId_art("0001");
+                    art.setDescrip("Ron Añejo");
+                    art.setNombre("Casique");
+                    art.setPrecio(3500000);
+                    art.setStock(23);
+                    art.setEstatus(true);
+                    art.setTamanno(1);
+                    art.setCategoria(cat);
+                    art.setMarca(mar);
+                    articulos.add(art);
+                    
+                        DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0002");
+			art.setDescrip("whisky");
+			art.setNombre("La Roca");
+			art.setPrecio(4500000);
+			art.setStock(15);
+                        art.setEstatus(true);
+                        art.setTamanno(1);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+			
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0003");
+			art.setDescrip("Sandria Caroreña");
+			art.setNombre("La Caroreña");
+			art.setPrecio(1000000);
+			art.setStock(31);
+                        art.setEstatus(true);
+                        art.setTamanno(2);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+				
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0004");
+			art.setDescrip("Licor de Ron");
+			art.setNombre("Canciller");
+			art.setPrecio(3100000);
+			art.setStock(27);
+                        art.setEstatus(true);
+                        art.setTamanno(2);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+                        
+                        DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0005");
+			art.setDescrip("Ron Añejo");
+			art.setNombre("Cinco Estrellas");
+			art.setPrecio(3000000);
+			art.setStock(20);
+                        art.setEstatus(true);
+                        art.setTamanno(1);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+]]>
+    </zscript>
+
+    <window id="selectArt" title="Articulos" maximizable="false" border="normal"
+                width="60%" height="550px">
+        <caption image="/Vista/General/Images/incluir.png" />
+        <div height="88%">
+            <panel title="" height="90%"  border="normal" collapsible="false">
+                <panelchildren>
+                    <borderlayout>
+                        <center autoscroll="true">
+                            <listbox id="lstbox" model="@{articulos}" selectedItem="@{artCatalogo}"
+                                     mold="paging" pageSize="50" multiple="false">
+                                <attribute name="onSelect">
+                                    <![CDATA[
+					selectArt.setAttribute("objeto",lstbox.getSelectedItem().getValue());
+					selectArt.setAttribute("accion","A");
+					selectArt.detach();
+                                    ]]>
+                                </attribute>
+                                <listhead sizable="true">
+                                    <listheader width="100%" label="Nombre" align="center"/>
+                                </listhead>
+                                <listitem
+                                    sclass="row-border item" self="@{each=actualCatalogo}" value="@{actualCatalogo}">
+                                    <listcell
+                                        label="@{actualCatalogo.nombre}" />
+                                </listitem>
+                            </listbox>
+                        </center>
+                    </borderlayout>
+                </panelchildren>
+            </panel>
+        </div>
+
+        <div align="right" height="12%" style="background:#005386">
+            <button id="btnCancelar" label="Cancelar" image="/images/remover.png" orient="vertical">
+                <attribute name="onClick">
+                    <![CDATA[
+			catIngredientes.setAttribute("accion","C");
+			catIngredientes.detach();
+                    ]]>
+                </attribute>
+            </button>
+        </div>
+    </window>
+
+</zk>

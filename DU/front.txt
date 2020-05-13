@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="DrinkUp" contentType="text/html;charset=UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+ <window>
+    
+ 
+     <div width="1000px" align="center">
+         
+     
+     <menubar id="menubar" style="background:#F9BD3A">
+                                  
+    	<menu label="Nuestros productos" style="color:white">
+            <menupopup> 
+            <menuitem label="Vino"/>
+            <menuitem label="Ron" />
+            <menuitem label="Cerveza"/>
+            <menuitem label="Otros"/>
+            </menupopup> 
+	</menu>           
+        <menu label="Ofrece tu producto" >
+	  
+	</menu>    
+        <menu label="Contáctanos" >
+            <menupopup>
+                <menuitem label="Instagram" href="https://www.instagram.com"/>
+                <menuitem label="Facebook" href="http://www.facebook.com"/>
+                <menuitem label="Twitter" href="http://www.titer.com"/>
+            </menupopup>
+	</menu> 
+        <menu label="Acerca de" >
+	  
+	</menu> 
+        <menu label="Inicia sesión" >
+            <menupopup>                                        
+                  <menuitem label="Cliente" href="/Vista/Login.zul"/> 
+                  <menuitem label="Súper usuario" href="/Vista/LoginSU.zul"/>
+	</menupopup>
+	</menu>    
+        <menu label="Registro" >
+	 
+	</menu>                                                             
+    </menubar>
+     </div>
+ 
+  <div id="header" style="background-image:url('Vista/General/Images/header4.png')" width="1100px" height="300px" align="center" >
+      
+      <!--<image width="300px" height="90px" align="center" src= "Vista/General/Images/header.png"/>-->
+        
+ </div>
+ <div style="margin-top:50px" id="body" width="1000px" height="1200px">
+ <div style="margin-top:50px" id="bodyvino" width="1000px" height="250px">
+    <hbox>
+        <div  id="bodyvino0" width="150px" height="200px" >
+            <vbox>
+                <image width="120px" height="200px" align="center" src= "Vista/General/Images/Vino-Tinto-Concha.jpg"/>
+                <label style="margin-left:50" value="Vinotinto Concha y Toro" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 2.500.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <div  style="margin-left:50px" id="bodyvino1" width="150px" height="210px" >
+            <vbox>
+                <image width="120px" height="200px" align="center" src= "Vista/General/Images/vino-blanco-taleia.jpg"/>
+                <label value="Vino Blanco Taleia" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+                
+            </vbox>
+        </div>
+        <space/>
+        <div  style="margin-left:50px" id="bodyvino2" width="150px" height="200px" >
+            <vbox>
+                <image width="190px" height="200px" align="center" src= "Vista/General/Images/vino-rosado-beringer.jpg" />
+                <label value="Vino Rosado Beringer" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 2.600.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  style="margin-left:50px" id="bodyvino3" width="200px" height="200px" >
+            <vbox>
+                <image width="160px" height="200px" align="center" src= "Vista/General/Images/vino-reservado.jpg"/>
+                <label style="margin-rigth:70" value="Vino Reservado" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 2.600.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div id="bodyvino4" width="200px" height="200px" >
+            <vbox>
+                <image width="170px" height="200px" align="center" src= "Vista/General/Images/vino-ochoa.jpg"/>
+                <label style="margin-rigth:70" value="Vino Ochoa" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 2.600.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+    </hbox>
+ </div>
+ <div style="margin-top:50px" id="bodyron" width="1000px" height="250px">
+    <hbox>
+        <div  id="ronbody0" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/ron-cacique-500.jpg"/>
+                <label  value="Ron Cacique 500" />
+                <label value="Tamaño: 0.70L" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+                </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div id="bodyron2" width="200px" height="200px" >
+            <vbox>
+                <image width="130px" height="200px" align="center" src= "Vista/General/Images/ron-santa.jpg"/>
+                <label value="Ron Santa Teresa" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 3.100.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div> 
+        <space/>
+        <space/>
+        <div id="bodyron3" width="200px" height="200px" >
+            <vbox>
+                <image width="150px" height="200px" align="center" src= "Vista/General/Images/ron-barcelo.jpg"/>
+                <label value="Ron Barcelò" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 3.500.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="ronbody4" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/ron-new-style.jpg"/>
+                <label value="Ron New Style" />
+                <label value="Tamaño: 0.70L" />
+                <label style="color:red" value="Precio: 3.800.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="ronbody5" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/ronblanco-barcelo.jpg"/>
+                <label value="Ron Blanco Barcelò" />
+                <label value="Tamaño: 0.70L" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        </hbox>
+    <space/>
+    <space/>
+</div>
+<div style="margin-top:50px" id="bodywisky" width="1000px" height="250px">
+    <hbox>
+        <div  id="bodywisky1" width="200px" height="200px" >
+            <vbox>
+                <image width="150px" height="200px" align="center" src= "Vista/General/Images/whisky-blendersPride.jpg"/>
+                <label value="Whisky Blenders Pride" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 5.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodywisky5" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/whisky-something-special-legacy.jpg"/>
+                <label value="Whisky Somthing Special Legacy" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 7.900.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodywisky2" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/whisky-buchanans.png"/>
+                <label value="Whisky Buchanas" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 8.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+         <div  id="bodywisky4" width="200px" height="200px" >
+            <vbox>
+                <image width="150px" height="200px" align="center" src= "Vista/General/Images/whisky-oldparr.jpg"/>
+                <label value="Whisky Grand Old Parr" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 8.500.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodywisky3" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/whisky-red-label.jpg"/>
+                <label value="Whisky Red Label" />
+                <label value="Tamaño: 1L" />
+                <label style="color:red" value="Precio: 7.500.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+    </hbox>
+ </div>
+ <div style="margin-top:50px" id="bodycerveza" width="1000px" height="250px">
+     <hbox>
+         <div  id="bodycer1" width="200px" height="200px" >
+            <vbox>
+                <image width="110px" height="200px" align="center" src= "Vista/General/Images/cerveza-solera-azul.jpg"/>
+                <label value="Cerveza Solera Azul" />
+                <label value="Tamaño: 36unidades" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        
+        <div  id="bodycer2" width="200px" height="200px" >
+            <vbox>
+                <image width="190px" height="200px" align="center" src= "Vista/General/Images/cerveza-pilsen.jpg"/>
+                <label value="Cerveza Polar Pilsen" />
+                <label value="Tamaño: 36unidades" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodycer3" width="200px" height="200px" >
+            <vbox>
+                <image width="170px" height="200px" align="center" src= "Vista/General/Images/cerveza_light.png"/>
+                <label value="Cerveza Polar Light" />
+                <label value="Tamaño: 36unidades" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodycer4" width="200px" height="200px" >
+            <vbox>
+                <image width="175px" height="200px" align="center" src= "Vista/General/Images/cerveza-regional.png"/>
+                <label value="Cerveza Regional Light" />
+                <label value="Tamaño: 36unidades" />
+                <label style="color:red" value="Precio: 3.000.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+        <div  id="bodycer5" width="200px" height="200px" >
+            <vbox>
+                <image width="120px" height="200px" align="center" src= "Vista/General/Images/cerveza-zulia.jpg"/>
+                <label value="Cerveza Zulia" />
+                <label value="Tamaño: 36unidades" />
+                <label style="color:red" value="Precio: 3.400.000BF" />
+                <a >Agrega a carrito</a>
+            </vbox>
+        </div>
+        <space/>
+        <space/>
+     </hbox>
+ </div>
+ </div>
+ <div id="win2" width="1000px" height="200px" style="background:#000000"> 
+   <hbox>
+       <div id="div1" align="center" width="200px" height="1000px" style="margin-top:70px;">
+          <vbox align="bottom">
+       <label style="color:white" value="Nuestras Redes sociales"/>
+       <space/>
+         </vbox>
+       <a href="http://instagram.com" target="_blank"><image width="50px" height="50px" src= "Vista/General/Images/instagram1.png"/></a>
+       <a href="http://twitter.com" target="_blank"><image width="50px" height="50px" src= "Vista/General/Images/twitter1.png"/></a>
+       <a href="http://facebook.com" target="_blank"><image width="50px" height="50px" src= "Vista/General/Images/facebook1.png"/></a>  
+       </div>
+       <separator/>  
+       <div id="div2" width="250px" align="center" style="margin-top:40px;">
+           <vbox align="center">
+        <a id="inst" href="http://amazon.com" target="_blank" style="color:white" >       Ayuda</a> 
+        <space/>
+        <a href="http://amazon.com" target="_blank" style="color:white">Políticas de privacidad</a> 
+        <space/>
+        <a href="http://amazon.com" target="_blank" style="color:white" >Términos y condiciones</a>
+        <space/> 
+        <a href="http://amazon.com" target="_blank" style="color:white">Trabaja con nosotros</a> 
+        </vbox>
+        </div>
+        <separator/>  
+       
+         <div id="div3" width="250px" align="center" style="margin-top:40px;">
+             <vbox align="center">
+         <a href="http://amazon.com" target="_blank" style="color:white">Métodos de pago</a> 
+        <space/>
+        <a href="http://amazon.com" target="_blank" style="color:white" >Recibe tu producto</a> 
+        <space/>
+        <a href="http://amazon.com" target="_blank" style="color:white">Horarios</a>
+        <space/> 
+        <a href="http://amazon.com" target="_blank" style="color:white">Marcas</a> 
+    </vbox>
+         </div>
+         <div id="div4" width="250px" align="right" style="margin-top:120px;">
+             <image src= "Vista/General/Images/footer1.png" />
+         </div>
+    </hbox>
+</div>  
+ 
+
+</window>
+</zk>

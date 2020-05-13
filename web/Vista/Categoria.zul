@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/estilos/style.css"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">    
+ 
+<window title="Categoria" width="500px"  border="normal"> 
+          
+      
+<grid>   
+     <rows>
+         
+       <row>  
+             Id:
+            <textbox id="id" maxlength="10" cols="10" />
+	</row>	
+            	
+	 <row>
+            Tipo:
+          <combobox id="tipo">
+    <comboitem label="1"/>
+    <comboitem label="2"/>
+    <comboitem label="3"/>
+    <comboitem label="4"/>
+    <comboitem label="5"/>
+    <comboitem label="6"/>
+    <comboitem label="7"/>
+    <comboitem label="8"/>
+    <comboitem label="9"/>
+    <comboitem label="10"/>
+           </combobox>
+            </row>
+  <row>
+            Nombre:
+           <combobox id="nombre">
+    <comboitem label="Vinos"/>
+    <comboitem label="Cervezas"/>
+    <comboitem label="Licores"/>
+    <comboitem label="Otros"/>
+           </combobox>
+            </row>
+
+	<row>
+           Descripción:                       
+           <textbox id="Descripcion" maxlength="30" cols="30" />            
+	</row>                                                                                                                       
+    </rows>    
+</grid>
+
+<button id="BtnGrabar" label="Grabar" />
+
+</window>   
+
+</zk>

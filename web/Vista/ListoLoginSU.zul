@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+ <window>
+     <menubar id="menubar">
+<menu label="Panel de control" >
+	   <menupopup>                                        
+                  <menuitem label="Cliente" href="/Vista/Clientes.zul"/>                                        
+	          <menuitem label="Ciudad" href="/Vista/Ciudad.zul"/>       
+                  <menuitem label="Parroquia" href="/Vista/Parroquia.zul"/>  
+                  <menuitem label="Articulo" href="/Vista/ArticulosSU.zul"/>   
+                     <menuitem label="Categoria" href="/Vista/Categoria.zul"/> 
+                  <menuitem label="Marca" href="/Vista/Marca.zul"/>      
+                       
+	   </menupopup>
+	</menu>
+        <menu label="Cerrar sesión" >
+	  
+	</menu> 
+          </menubar>
+
+</window>
+
+</zk>

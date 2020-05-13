@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/estilos/style.css"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">    
+ 
+<window title="Marca" width="500px"  border="normal"> 
+          
+      
+<grid>   
+     <rows>
+         
+       <row>  
+             Id:
+            <textbox id="id" maxlength="10" cols="10" />
+	</row>	
+        <row>
+              Nombre:
+          <combobox id="nombre">
+    <comboitem label="Cacique"/>
+    <comboitem label="Santa Teresa"/>
+    <comboitem label="Superior"/>
+    <comboitem label="Canaima"/>
+           </combobox>
+            </row>
+            	
+	<row>
+           Descripcion: 
+           <textbox id="descripcion" maxlength="30" cols="30" />
+	</row>                                                                                                                             
+    </rows>    
+</grid>
+
+<button id="BtnGrabar" label="Grabar" />
+
+</window>   
+
+</zk>

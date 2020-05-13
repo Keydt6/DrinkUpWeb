@@ -1,0 +1,46 @@
+<?page title="Bienvenido" contentType="text/html;charset=UTF-8"?>
+
+
+<zk>
+    <style> 
+	body{   
+		margin: 0;
+		height: 100%; 
+		position: fixed;
+	 } 
+    </style>  
+    <hbox pack="center" align="center" width="30%" style= "background:#ffffff;margin:50% 115%"  >
+	<vbox pack="center" height="50%" align="center">
+            <grid>
+                <columns>
+                    <column hflex="2" />
+                    <column hflex="2" />
+                </columns>
+                <rows > 
+                    <row><cell colspan="2" align="center">
+                        <image width="85%" height="180px" align="center" src= "/Vista/General/Images/login-usuario2.png"/>
+                        </cell></row>                
+                        <row align="left">Usuario: <textbox id="name"  /></row>                
+                        <row align="left">Contraseña: <textbox id="pwd" type="password" /></row>          
+                        <row>
+                	<cell colspan="2" align="center" >
+                		<vlayout>
+                			<hbox style="margin-left:60px 80px">
+                				<button label="Regresar" width="100px" href="../" />
+                				<space />
+                				<space />
+                				<space />
+                			    <button label="Ingresar"  width="100px" href="ListoLoginSU.zul" />
+                			</hbox>
+							<a href="#"><label value="Olvidé mi contraseña"/></a>
+                		</vlayout>
+               	 	</cell>
+                </row>
+            </rows>
+            
+        </grid>	
+    </vbox>		
+</hbox>	
+	
+
+</zk>

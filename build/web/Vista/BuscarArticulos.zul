@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"  arg0="./listArticulos" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+    <window id="listArticulos" title="Busqueda de Articulos" width="600px" border="normal">
+        <zscript>
+		<![CDATA[
+                
+                        
+                        DTO.Marca mar = new DTO.Marca();
+                        mar.setId_mar("00001");
+                        mar.setNombre("Casique");
+                        mar.setDescrip("Ron de Venezuela");
+                        mar.setEstatus(true);
+                        
+                        DTO.Categoria cat = new DTO.Categoria();
+                        cat.setId_cat(1);
+                        cat.setTipo_cat(2);
+                        cat.setDescrip("articulos que son ron");
+                        cat.setNombre("Ron");
+                        cat.setEstatus(true);
+                        
+			List articulos = new ArrayList();
+			List articulosEnc = new ArrayList();
+			DTO.Articulo artSel;
+			
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0001");
+			art.setDescrip("Ron Añejo");
+			art.setNombre("Casique");
+			art.setPrecio(3500000);
+			art.setStock(23);
+                        art.setEstatus(true);
+                        art.setTamanno(1);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+			
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0002");
+			art.setDescrip("whisky");
+			art.setNombre("La Roca");
+			art.setPrecio(4500000);
+			art.setStock(15);
+                        art.setEstatus(true);
+                        art.setTamanno(1);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+			
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0003");
+			art.setDescrip("Sandria Caroreña");
+			art.setNombre("La Caroreña");
+			art.setPrecio(1000000);
+			art.setStock(31);
+                        art.setEstatus(true);
+                        art.setTamanno(2);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+				
+			DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0004");
+			art.setDescrip("Licor de Ron");
+			art.setNombre("Canciller");
+			art.setPrecio(3100000);
+			art.setStock(27);
+                        art.setEstatus(true);
+                        art.setTamanno(2);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+                        
+                        DTO.Articulo art = new DTO.Articulo();
+			art.setId_art("0005");
+			art.setDescrip("Ron Añejo");
+			art.setNombre("Cinco Estrellas");
+			art.setPrecio(3000000);
+			art.setStock(20);
+                        art.setEstatus(true);
+                        art.setTamanno(1);
+                        art.setCategoria(cat);
+                        art.setMarca(mar);
+			articulos.add(art);
+			
+			void buscarArticulo()
+			{
+				if (keywordBox.getValue() != null && !keywordBox.getValue().trim().equals(""))
+				{
+					articulosEnc.clear();
+					for (DTO.Articulo arti : articulos)
+					{
+						if (arti.getNombre().toLowerCase().contains(keywordBox.getValue().trim().toLowerCase()) || arti.getDescrip().toLowerCase().contains(keywordBox.getValue().trim().toLowerCase()))
+						{
+							articulosEnc.add(arti);
+						}
+					}
+					binder.loadAll();
+				}
+			}
+		]]>
+        </zscript>
+        <hbox align="center">
+            Busqueda:
+            <textbox id="keywordBox" />
+            <button id="btnBuscar" label="Search" image="/Vista/General/Images/search.png" >
+                <attribute name="onClick">
+				<![CDATA[
+					buscarArticulo();		
+				]]>
+                </attribute>
+            </button>
+        </hbox>
+        <listbox id="box" height="160px" emptyMessage="No Hay Articulos con Dicho Criterio"
+                 model="@{articulosEnc}">
+            <attribute name="onSelect">
+			<![CDATA[
+				DTO.Articulo artSel = (DTO.Articulo)((Listitem) self.getSelectedItem()).getValue();
+				binder.loadAll();
+			]]>
+            </attribute>
+            <listhead>
+                <listheader label="Nombre" />
+                <listheader label="Descripcion" />
+                <listheader label="$ Precio" width="20%"/>
+            </listhead>
+            <listitem sclass="row-border item" self="@{each=objeto}" value="@{objeto}">
+                <listcell label="@{objeto.nombre}"/>
+                <listcell label="@{objeto.descrip}"/>
+                <listcell label="@{objeto.precio}"/>
+            </listitem>
+        </listbox>
+        <hbox style="margin-top:20px">
+            <image id="previewImage" width="250px" />
+            <vbox>
+                <label id="modelLabel" value="@{artSel.nombre}"/>
+                <label id="makeLabel"  value="@{artSel.descrip}"/>
+                <label id="priceLabel"  value="@{artSel.precio}"/>
+                <label id="descriptionLabel"  value="@{artSel.stock}"/>
+            </vbox>
+        </hbox>
+    </window>
+</zk>
